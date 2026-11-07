@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid</title>
+    <style>
+
+        /* Grid ya Flex mein padding use nahi karni chahiye ye apply to ho jaye ga lakin handling  mein masla kare ga aru is ki jagha hum Gap ka use kar sakte hain. */
+
+        /* Hum Flex mein justify-items use nahi kar sakte q ke us mein apply nahi hota hum Grid mein justify-items use kar sakte hai */
+        .container {
+            width: 80vw;
+            height: 100vh;
+            border: 2px solid black;
+            display: grid;
+            /* grid-template-columns: [pehla] 120px [doosra] 100px [t]; */
+            /* grid-template-rows: 100px 100px 100px; */
+
+
+            /* fr ka matlab hai ke hum ne jitni bhi puri width di hai us ka jitni hum ne value di ho gi utna fraction matlab agar hum dein 1fr to ye width ke hisab se 1 fractions mein divide ho jaye ga. */
+
+
+
+            /* yahan repeat(4, minmax(100px, 1fr))  is mein repeat ka matlab hai ke ke ye kitni bar repeat ho ga is mein 4 show karta hai ke ye kitni bar repeat ho ga aur minmax ka matlab hai ke minimum value kitni ho gi aur maximum kitni ho gi yahan 100px ka matlab hai ke ye minimum 100px ho gi aur 1fr yanhan fraction kitna ho ga. */
+            /* grid-template-columns: repeat(4, minmax(100px, 1fr)); */
+            grid-template-columns: repeat(4, 80px);
+            grid-template-rows: repeat(2, 80px);
+            /* gap: 34px; */
+            row-gap: 10px;
+            column-gap: 44px;
+
+            /* agar hum yahan align self aur justify self use karein to wo individual cell ke ander set ho ga. */
+
+
+            /* Acha hum justify content kab use karte hai? hum justify content tab use karte hai jab humne container ke hisab se ise positioned karna ho. */
+
+            /* grid mein aik property hoti hai place content  ye justify content aur align  content bhi center ho aye ga humein ye use karne ki zaroorat hi nahi hoti place holder khud ise center kar deta hai ya phor jo bhi hum posotion lagayein ye wahin lag jaye gi. */
+            
+            justify-items: center;
+            align-items: center;
+        }
+
+        .item {
+            border: 2px solid red;
+            height: 55px;
+            width: 55px;
+        }
+
+        .item-4 {
+            /* grid-row: 1/2;
+            grid-column: pehla/t; */
+        }
+
+        .item-1 {
+            /* grid-row: 1/2; */
+            /* or you can do  */
+            /* grid-row-start: 1;
+            grid-row-end: 2; */
+
+            /* same thing */
+            /* grid-column: 1/2; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item item-1">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item item-4">4</div>
+        <div class="item">5</div>
+    </div>
+</body>
+
+</html>
